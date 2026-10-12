@@ -1,8 +1,9 @@
 import Page from '../components/Page'
 import PageHero from '../components/PageHero'
 import Media from '../components/Media'
+import WhyHire from '../components/WhyHire'
 import { FadeUp, SplitLines } from '../components/Reveal'
-import { about, profile } from '../content'
+import { about, aboutHireReasons, profile } from '../content'
 
 export default function About() {
   return (
@@ -17,7 +18,7 @@ export default function About() {
       <section className="wrap section" style={{ paddingTop: 0 }}>
         <div className="about-intro">
           <FadeUp className="media-frame">
-            <Media src={profile.portrait} label="Portrait · /images/portrait.jpg" mark="JP" parallax />
+            <Media src={profile.headshot} alt={`${profile.firstName} ${profile.lastName}`} label="Portrait" mark="JP" parallax />
           </FadeUp>
           <div className="about-copy">
             <FadeUp>
@@ -55,10 +56,18 @@ export default function About() {
                 </div>
                 <p>{about.languages}</p>
               </div>
+              <a href={profile.cv} download className="btn" style={{ marginTop: 40 }}>
+                Download CV <span className="arrow">↓</span>
+              </a>
             </FadeUp>
           </div>
         </div>
       </section>
+
+      <WhyHire
+        reasons={aboutHireReasons}
+        lines={['AI that', <span className="outline-text">people</span>, <span className="blue">use</span>]}
+      />
 
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap">
@@ -78,7 +87,7 @@ export default function About() {
                 <span className="num">{c.num}</span>
                 <span className="label dim">{c.years}</span>
               </div>
-              {c.image && <Media src={c.image} label={c.title} />}
+              {c.image && <Media src={c.image} alt={c.title} label={c.title} />}
               <h3>{c.title}</h3>
               <p className="dim">{c.text}</p>
             </FadeUp>

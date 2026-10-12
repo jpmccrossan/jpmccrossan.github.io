@@ -1,12 +1,26 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'motion/react'
+import { AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransform } from 'motion/react'
 import Page from '../components/Page'
 import DotField from '../components/DotField'
 import Marquee from '../components/Marquee'
 import Counter from '../components/Counter'
+import Media from '../components/Media'
+import Magnetic from '../components/Magnetic'
+import WhyHire from '../components/WhyHire'
+import Research from '../components/Research'
+import HireBanner from '../components/HireBanner'
 import { FadeUp, SplitLines, WordReveal } from '../components/Reveal'
 import { marquee, nav, profile, stats } from '../content'
+
+// Floating image that follows the cursor over the index rows
+const previews: Record<string, string> = {
+  '/about': '/images/portrait-shirt.jpg',
+  '/work': '/images/masa-presenting.jpg',
+  '/stack': '/images/vr-kickboxing/system-in-action.jpg',
+  '/beyond': '/images/ultra-50km-bw.jpg',
+  '/contact': '/images/portrait-suit.jpg',
+}
 
 const teasers: Record<string, string> = {
   '/about': 'From landscape architecture to data science, and on to Copenhagen.',
@@ -22,6 +36,12 @@ export default function Home({ ready }: { ready: boolean }) {
   const nameY = useTransform(scrollYProgress, [0, 1], ['0%', '35%'])
   const nameOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
   const glowScale = useTransform(scrollYProgress, [0, 1], [1, 1.6])
+
+  const [preview, setPreview] = useState<string | null>(null)
+  const px = useMotionValue(0)
+  const py = useMotionValue(0)
+  const sx = useSpring(px, { stiffness: 150, damping: 20, mass: 0.5 })
+  const sy = useSpring(py, { stiffness: 150, damping: 20, mass: 0.5 })
 
   return (
     <Page title={`${profile.firstName} ${profile.lastName} · Data Science`}>
@@ -52,8 +72,7 @@ export default function Home({ ready }: { ready: boolean }) {
             stagger={0.12}
             lines={[
               <span className="row">
-                <span>James</span>
-                <span className="outline-text">—</span>
+                <span>James-</span>
               </span>,
               <span className="row row--mid">
                 <span className="outline-text">Patrick</span>
@@ -84,13 +103,16 @@ export default function Home({ ready }: { ready: boolean }) {
 
       <section className="section wrap">
         <div className="statement-grid">
-          <div>
+          <div className="hello">
             <span className="label dim">[ Hej, I'm JP ]</span>
+            <FadeUp delay={0.1} className="media-frame hello-photo">
+              <Media src={profile.headshot} alt={`${profile.firstName} ${profile.lastName}`} label="Headshot" />
+            </FadeUp>
           </div>
           <div>
             <WordReveal
               className="statement"
-              text="I build data systems that people can actually trust. Traceable, tested, and explained in plain English."
+              text="I build data and AI systems that people can actually trust. Traceable, tested, and explained in plain English."
             />
             <FadeUp delay={0.1} className="lead dim" as="div">
               <p style={{ marginTop: 40, maxWidth: '38ch' }}>
@@ -100,12 +122,21 @@ export default function Home({ ready }: { ready: boolean }) {
             </FadeUp>
             <FadeUp delay={0.2}>
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 40 }}>
-                <Link to="/about" className="btn">
-                  My story <span className="arrow">→</span>
-                </Link>
-                <Link to="/work" className="btn btn--ghost">
-                  The work <span className="arrow">→</span>
-                </Link>
+                <Magnetic strength={0.25}>
+                  <Link to="/about" className="btn">
+                    My story <span className="arrow">→</span>
+                  </Link>
+                </Magnetic>
+                <Magnetic strength={0.25}>
+                  <Link to="/work" className="btn btn--ghost">
+                    The work <span className="arrow">→</span>
+                  </Link>
+                </Magnetic>
+                <Magnetic strength={0.25}>
+                  <a href={profile.cv} download className="btn btn--ghost">
+                    Download CV <span className="arrow">↓</span>
+                  </a>
+                </Magnetic>
               </div>
             </FadeUp>
           </div>
@@ -128,7 +159,17 @@ export default function Home({ ready }: { ready: boolean }) {
         </div>
       </section>
 
-      <section className="wrap" style={{ paddingBottom: 'clamp(80px, 14vh, 180px)' }}>
+      <WhyHire />
+
+      <Research />
+
+      <section
+        className="wrap section"
+        onPointerMove={(e) => {
+          px.set(e.clientX)
+          py.set(e.clientY)
+        }}
+      >
         <div className="section-head">
           <span className="label">Index</span>
           <span className="label dim">05 sections</span>
@@ -137,9 +178,13 @@ export default function Home({ ready }: { ready: boolean }) {
           className="h-xl"
           lines={['A look', <span className="outline-text">around</span>]}
         />
-        <ul className="index-list" style={{ marginTop: 'clamp(40px, 8vh, 80px)' }}>
+        <ul
+          className="index-list"
+          style={{ marginTop: 'clamp(40px, 8vh, 80px)' }}
+          onPointerLeave={() => setPreview(null)}
+        >
           {nav.map((n) => (
-            <li key={n.to}>
+            <li key={n.to} onPointerEnter={() => setPreview(n.to)}>
               <Link to={n.to} className="index-row" data-cursor="Open">
                 <span className="label">{n.num}</span>
                 <h3>{n.label}</h3>
@@ -151,7 +196,24 @@ export default function Home({ ready }: { ready: boolean }) {
             </li>
           ))}
         </ul>
+        <motion.div className="index-preview" style={{ x: sx, y: sy }} aria-hidden>
+          <AnimatePresence>
+            {preview && (
+              <motion.img
+                key={preview}
+                src={previews[preview]}
+                alt=""
+                initial={{ clipPath: 'inset(100% 0 0 0)', scale: 1.3 }}
+                animate={{ clipPath: 'inset(0% 0 0 0)', scale: 1 }}
+                exit={{ clipPath: 'inset(0 0 100% 0)', scale: 1.1 }}
+                transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+              />
+            )}
+          </AnimatePresence>
+        </motion.div>
       </section>
+
+      <HireBanner />
     </Page>
   )
 }

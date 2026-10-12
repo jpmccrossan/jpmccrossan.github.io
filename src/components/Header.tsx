@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from 'motion/react'
+import Scramble from './Scramble'
 import { nav, profile } from '../content'
 import { setScrollLocked } from '../hooks/useSmoothScroll'
 
@@ -9,6 +10,10 @@ const EASE = [0.76, 0, 0.24, 1] as const
 export default function Header() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
+  const [scrolled, setScrolled] = useState(false)
+  const { scrollY, scrollYProgress } = useScroll()
+  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 40 })
+  useMotionValueEvent(scrollY, 'change', (v) => setScrolled(v > 40))
 
   useEffect(() => setOpen(false), [pathname])
 
@@ -21,7 +26,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="chrome">
+      <motion.div className="scroll-progress" style={{ scaleX: progress }} aria-hidden />
+      <header className={`chrome${scrolled && !open ? ' scrolled' : ''}`}>
         <Link to="/" className="brand" aria-label="Home">
           <span className="brand-dots" aria-hidden>
             <i />
@@ -35,10 +41,14 @@ export default function Header() {
             {nav.map((n) => (
               <NavLink key={n.to} to={n.to}>
                 <sup>{n.num}</sup>
-                {n.label}
+                <Scramble text={n.label} />
               </NavLink>
             ))}
           </div>
+          <Link to="/contact" className="hire-pill label" data-cursor="Hire">
+            <span className="dot dot--pulse" />
+            <Scramble text="Hire me" />
+          </Link>
           <button
             className={`burger${open ? ' open' : ''}`}
             onClick={() => setOpen((o) => !o)}

@@ -5,15 +5,17 @@ export const profile = {
   firstName: 'James-Patrick',
   lastName: 'McCrossan',
   initials: 'JP',
-  tagline: 'Data Science · Python & SQL · Trustworthy Data',
+  tagline: 'AI Engineering · LLMs & RAG · Python & Data',
   statement:
-    'I turn raw data into clean, checked results and models, built in Python and SQL, that a data science team can trust and act on.',
+    'I build AI that a business can trust and actually use: LLM workflows, NLP on self-hosted models and agentic RAG, with the Python, data and cloud engineering around them.',
   status: 'Relocating to Copenhagen · 2026',
   location: 'Derby, UK',
   email: 'jpdmccrossan@gmail.com',
   github: 'https://github.com/jpmccrossan',
   linkedin: 'https://www.linkedin.com/in/james-patrick-mccrossan',
-  portrait: '' as string, // e.g. '/images/portrait.jpg'
+  portrait: '/images/portrait-shirt.jpg',
+  headshot: '/images/portrait-suit.jpg',
+  cv: '/cv/James-Patrick_McCrossan_CV.pdf',
 }
 
 export const nav = [
@@ -33,8 +35,9 @@ export const stats = [
 
 export const about = {
   intro: [
-    'Day-to-day I work across Python, SQL, AI and machine learning, building data pipelines with full traceability, currently on-site in a secure, highly regulated industry.',
-    'At PKF Infuse I built ETL, dashboards and NLP pipelines and explained results to partners and non-technical colleagues.',
+    'At PKF Infuse I was the sole developer across systems, data and AI. I delivered an AI platform on Azure AI Foundry with prompt-chained, multi-step workflows, built an NLP pipeline on a locally hosted Ollama LLM with zero data leakage, and built an AI system with the M&A team that drafts information memoranda with a human in the loop.',
+    'Now at Assystem I work on-site in a highly regulated nuclear environment, where I built a reinforcement learning simulator in Python and TensorFlow. I use LangChain and LangGraph for orchestration, and Claude, Claude Code and Cursor every day.',
+    'I also led firm-wide AI adoption: I trained colleagues on tooling and prompt engineering, ran a Copilot webinar and an AI Week, and sat with non-technical teams to decide which processes were worth rebuilding around AI.',
   ],
   highlight:
     "I'm marrying my Danish fiancée next year and accommodation in Copenhagen is sorted: one month's notice and a work visa is all I need to start.",
@@ -50,14 +53,14 @@ export const about = {
       num: '02',
       title: 'Retrained',
       years: '2023 – 2024',
-      text: 'MSc Computing at Cardiff University. Dissertation: a machine learning VR kickboxing simulator in Python, TensorFlow, Unity and C#, presented at a conference with a short paper for BritCHI.',
+      text: 'MSc Computing at Cardiff University. Dissertation: a machine learning VR kickboxing simulator in Python, TensorFlow, Unity and C#. Abstract published at MASA, and short paper accepted for publication at BritCHI in November.',
       image: '',
     },
     {
       num: '03',
-      title: 'Data & AI',
+      title: 'AI & Data',
       years: '2025 – now',
-      text: 'Sole developer across systems, data and AI at PKF Infuse, then backend Python on-site in the nuclear sector with Assystem. Traceable, trustworthy, production-grade.',
+      text: 'Sole developer across systems, data and AI at PKF Infuse: LLM workflows, self-hosted NLP and firm-wide AI adoption. Then Python and reinforcement learning on-site in the nuclear sector with Assystem.',
       image: '',
     },
     {
@@ -88,7 +91,6 @@ export const experience: Job[] = [
     role: 'Backend Python Developer',
     org: 'Assystem',
     period: 'Jan 2026 – Present',
-    tag: 'Classified-ish',
     current: true,
     summary:
       'On-site client delivery in a secure, highly regulated environment · limited in what I can disclose',
@@ -118,7 +120,11 @@ export const experience: Job[] = [
     period: '2023 – 2024',
     tag: 'Education',
     summary: 'Dissertation: a machine learning VR kickboxing simulator',
-    points: ['Python, TensorFlow, Unity and C#. Presented at a conference; short paper to be published at BritCHI.'],
+    points: [
+      'Python, TensorFlow, Unity and C#.',
+      'Abstract published and presented at MASA.',
+      'Short paper accepted for publication at BritCHI, November 2026.',
+    ],
   },
   {
     role: 'Graduate Landscape Architect',
@@ -177,28 +183,28 @@ export const adventures: Adventure[] = [
     kicker: 'Solo cycle',
     date: '2023',
     text: 'Cycled solo across Europe. A head start on Danish bike culture.',
-    image: '',
+    image: '/images/cycling-bilbao-venice.jpg',
   },
   {
     title: 'Brazilian Jiu-Jitsu',
     kicker: 'British Open',
     date: 'Ongoing',
-    text: 'Training and competing as a team, week in, week out.',
-    image: '',
+    text: 'Competed at the British Open. Training and competing as a team, week in, week out.',
+    image: '/images/bjj-british-open.jpg',
   },
   {
     title: '50KM Ultra',
     kicker: 'For charity',
     date: 'Completed',
     text: 'A 50km ultra-marathon run for charity.',
-    image: '',
+    image: '/images/ultra-50km-bw.jpg',
   },
   {
     title: 'VR Kickboxing',
-    kicker: 'MSc · BritCHI',
-    date: '2024',
-    text: 'A machine learning VR kickboxing simulator, presented at a conference.',
-    image: '',
+    kicker: 'MASA · BritCHI',
+    date: '2024 – 2026',
+    text: 'A machine learning VR kickboxing simulator. Abstract published at MASA; short paper accepted at BritCHI.',
+    image: '/images/vr-kickboxing/system-in-action.jpg',
   },
   {
     title: 'Project Hack 27',
@@ -227,6 +233,93 @@ export const beyond = [
   },
   {
     label: "Coffee's on me, ask about",
-    text: 'The ML VR kickboxing simulator from my MSc, competing at the BJJ British Open, cycling Bilbao to Venice, or the 50km ultra-marathon for charity.',
+    text: 'The ML VR kickboxing simulator from my MSc (published at MASA, accepted at BritCHI), competing at the BJJ British Open, cycling Bilbao to Venice, or the 50km ultra-marathon for charity.',
   },
 ]
+
+// "Why hire me" bento on the About page, focused on AI work.
+export const aboutHireReasons = [
+  {
+    stat: 'Multi-step',
+    title: 'LLM workflows, delivered',
+    text: 'An AI platform on Azure AI Foundry: prompt-chained workflows, MSAL auth, Blob Storage and a shared prompt library.',
+    tags: ['Azure AI Foundry', 'Prompt engineering'],
+    wide: true,
+  },
+  {
+    stat: '0',
+    title: 'Bytes of data leaked',
+    text: 'NLP on a locally hosted Ollama LLM for confidential client material, with full traceability and JSONL output for fine-tuning.',
+    tags: ['Ollama', 'NLP'],
+  },
+  {
+    stat: 'M&A',
+    title: 'Human in the loop',
+    text: 'Built with the corporate finance and M&A team: an AI system that drafts information memoranda, with people in control.',
+    tags: ['LLMs', 'Corporate finance'],
+  },
+  {
+    stat: '2 days',
+    title: 'Agentic RAG, fast',
+    text: 'Rolls-Royce hackathon, team of six: an ambiguous business problem to a working agentic RAG assistant with dashboards.',
+    tags: ['RAG', 'Streamlit', 'Ollama'],
+  },
+  {
+    stat: 'AI Week',
+    title: 'Gets people using AI',
+    text: 'Trained colleagues, ran a Copilot webinar and an AI Week, and chose with them where AI helps and where a simpler tool is better.',
+    tags: ['Adoption', 'Training'],
+  },
+]
+
+// "Why hire me" bento on the landing page. `stat` is the big headline figure.
+export const hireReasons = [
+  {
+    stat: 'v1',
+    title: 'Ships end to end',
+    text: "Built v1 of a major nuclear company's application solo across the stack: FastAPI, React, PostgreSQL, API and database design.",
+    tags: ['FastAPI', 'React', 'PostgreSQL'],
+    wide: true,
+  },
+  {
+    stat: '0',
+    title: 'Bytes of data leaked',
+    text: 'NLP pipeline on a locally hosted Ollama LLM with full traceability. AI that a regulated business can actually sign off.',
+    tags: ['LLMs', 'Ollama', 'NLP'],
+  },
+  {
+    stat: 'Daily',
+    title: 'Production data',
+    text: 'Pandas/NumPy ETL into PostgreSQL running daily in production, feeding Power BI dashboards for partners.',
+    tags: ['ETL', 'Power BI'],
+  },
+  {
+    stat: '2×',
+    title: 'Published research',
+    text: 'ML VR kickboxing simulator: abstract published at MASA, short paper accepted at BritCHI (November 2026).',
+    tags: ['TensorFlow', 'Unity', 'HCI'],
+  },
+  {
+    stat: 'Firm-wide',
+    title: 'Multiplies the team',
+    text: 'Led firm-wide AI adoption and trained colleagues on tooling and prompt engineering. Explains results to non-technical partners.',
+    tags: ['Communication', 'Training'],
+  },
+]
+
+// Featured research: pinned horizontal-scroll case study on the landing page.
+export const research = {
+  kicker: 'Featured research',
+  title: 'ML VR kickboxing',
+  summary:
+    'A VR sparring partner that reads you back. Pose estimation drives a machine learning model that predicts your next move, and an avatar that fights like a person.',
+  venues: ['Abstract · MASA', 'Short paper · BritCHI, Nov 2026'],
+  slides: [
+    { image: '/images/masa-presenting.jpg', caption: 'Presenting the work at MASA', position: '20% 40%' },
+    { image: '/images/vr-kickboxing/mediapipe-landmarks.jpg', caption: '33 body landmarks with MediaPipe', contain: true },
+    { image: '/images/vr-kickboxing/pose-guard.jpg', caption: 'Live pose capture: guard' },
+    { image: '/images/vr-kickboxing/pose-garden.jpg', caption: 'Data collection in the wild' },
+    { image: '/images/vr-kickboxing/avatar-animations.jpg', caption: 'Predictions driving the Unity avatar' },
+    { image: '/images/vr-kickboxing/system-in-action.jpg', caption: 'The system in action' },
+  ] as { image: string; caption: string; position?: string; contain?: boolean }[],
+}
