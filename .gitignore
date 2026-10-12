@@ -25,6 +25,10 @@ dist-ssr
 
 # Personal source documents (contain phone number etc.)
 *.pdf
+!public/cv/*.pdf
+
+# Unprocessed source photos (web versions live in public/images)
+originals/
 
 # Environment files
 .env

@@ -10,6 +10,7 @@ export default function Media({
   mark,
   className = '',
   parallax = false,
+  position,
 }: {
   src?: string
   alt?: string
@@ -17,6 +18,8 @@ export default function Media({
   mark?: string
   className?: string
   parallax?: boolean
+  /** CSS object-position, to keep the subject in frame when cropped */
+  position?: string
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
@@ -29,7 +32,7 @@ export default function Media({
           src={src}
           alt={alt}
           loading="lazy"
-          style={{ y, scale: parallax ? 1.18 : 1 }}
+          style={{ y, scale: parallax ? 1.18 : 1, objectPosition: position }}
         />
       ) : (
         <div className="media-ph">

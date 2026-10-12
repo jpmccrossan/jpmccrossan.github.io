@@ -26,6 +26,7 @@ export default function Contact() {
     { label: 'Email', href: `mailto:${profile.email}` },
     { label: 'LinkedIn', href: profile.linkedin },
     { label: 'GitHub', href: profile.github },
+    { label: 'Download CV', href: profile.cv, download: true },
   ]
   return (
     <Page title={`Contact · ${profile.firstName} ${profile.lastName}`}>
@@ -50,14 +51,19 @@ export default function Contact() {
         <ul className="contact-links" style={{ marginTop: 'clamp(56px, 10vh, 120px)' }}>
           {links.map((l, i) => (
             <FadeUp as="li" key={l.label} delay={i * 0.06}>
-              <a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
+              <a
+                href={l.href}
+                target={l.href.startsWith('http') ? '_blank' : undefined}
+                rel="noreferrer"
+                download={'download' in l ? true : undefined}
+              >
                 <span>
                   <span className="label dim" style={{ marginRight: 20 }}>
                     0{i + 1}
                   </span>
                   {l.label}
                 </span>
-                <span>↗</span>
+                <span>{'download' in l ? '↓' : '↗'}</span>
               </a>
             </FadeUp>
           ))}

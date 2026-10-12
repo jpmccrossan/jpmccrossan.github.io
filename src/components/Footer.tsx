@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="wrap label" style={{ marginBottom: 20 }}>
         <span className="chip" style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
-          Want to work together?
+          Available for hire · Copenhagen
         </span>
       </div>
       <Link to="/contact" className="footer-cta" data-cursor="Say hi">
@@ -20,6 +20,11 @@ export default function Footer() {
           <ul>
             <li>
               <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            </li>
+            <li>
+              <a href={profile.cv} download>
+                Download CV ↓
+              </a>
             </li>
           </ul>
         </div>
@@ -59,7 +64,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <Marquee items={['Trustworthy data', 'Python & SQL', 'Copenhagen 2026']} speed={40} />
+      <Marquee items={['Trustworthy AI & ML', 'Python & SQL', 'Copenhagen 2026']} speed={40} />
 
       <div className="footer-base label">
         <span>

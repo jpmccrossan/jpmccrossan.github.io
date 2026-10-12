@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { motion } from 'motion/react'
 import { SplitLines } from './Reveal'
+import Scramble from './Scramble'
 
 export default function PageHero({
   num,
@@ -23,7 +24,7 @@ export default function PageHero({
         transition={{ duration: 0.8, delay: 0.6 }}
       >
         <span className="chip chip--blue">
-          {num} / {kicker}
+          <Scramble text={`${num} / ${kicker}`} />
         </span>
         {aside && <span className="dim">{aside}</span>}
       </motion.div>

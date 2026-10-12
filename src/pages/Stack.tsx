@@ -88,7 +88,7 @@ export default function Stack() {
                 <i />
                 <i />
                 <span className="dim" style={{ marginLeft: 8 }}>
-                  ~/trustworthy-data
+                  ~/trustworthy-ai
                 </span>
               </div>
               <Typewriter />
