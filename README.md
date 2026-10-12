@@ -17,7 +17,7 @@ npm run preview  # serve the production build locally
 ## Editing content
 
 All copy lives in `src/content.ts`. To add images, put them in `public/images/` and set the
-matching `image` / `portrait` field, e.g. `portrait: '/images/portrait.jpg'`. Empty fields render a
+matching `image` / `portrait` field, e.g. `portrait: '/images/portrait-shirt.jpg'`. Unedited source photos go in `originals/` (not committed). Empty fields render a
 styled placeholder.
 
 | Route     | File                  |
@@ -31,19 +31,16 @@ styled placeholder.
 
 ## Deploying
 
-It's a static site: `npm run build` produces `dist/`. Because it uses real URLs (`/about`, not `/#/about`),
-the host must serve `index.html` for unknown paths ("SPA fallback").
+Hosted on GitHub Pages. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the
+site and publishes `dist/`. It's live about 30 seconds later at https://jpmccrossan.github.io.
 
-- **Docker / VPS (e.g. a $5/month droplet):** `docker build -t site . && docker run -p 80:80 site`.
-  `deploy/nginx.conf` already has the SPA fallback and asset caching.
-- **DigitalOcean App Platform (static site):** source dir `/`, build command `npm run build`,
-  output dir `dist`, and set the catch-all document to `index.html`.
+The build copies `index.html` to `404.html` so deep links like `/about` load the app (GitHub Pages
+serves them with a 404 status, which browsers ignore).
 
-## Moving the domain off WordPress
+## Custom domain (moving off WordPress)
 
-1. Deploy here first and check it on the host's temporary URL.
-2. At your domain registrar (or WordPress.com → Domains if registered there), point DNS at the new host:
-   an `A` record for `@` to the server IP (or the `CNAME`/records your host gives you) and `www` as a `CNAME`.
-3. Add the domain in the host's dashboard and enable HTTPS (Let's Encrypt / automatic certs).
-4. Once DNS has propagated, cancel the WordPress plan. If the domain itself is registered with
-   WordPress.com, you can keep it there and only change DNS, or transfer it out later.
+1. `gh api -X PUT repos/jpmccrossan/jpmccrossan.github.io/pages -f cname=jpmccrossan.com`
+2. In WordPress.com DNS, keep any MX/email records, remove the `@` and `www` A/CNAME records, then add
+   A records on `@` for 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 and a
+   CNAME `www` → `jpmccrossan.github.io`.
+3. Verify the domain in GitHub (Settings → Pages), then enforce HTTPS once the certificate is issued.

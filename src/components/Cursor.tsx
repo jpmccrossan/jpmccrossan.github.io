@@ -9,12 +9,10 @@ export default function Cursor() {
   const rx = useSpring(x, { stiffness: 260, damping: 28, mass: 0.6 })
   const ry = useSpring(y, { stiffness: 260, damping: 28, mass: 0.6 })
   const [label, setLabel] = useState<string | null>(null)
-  const [enabled, setEnabled] = useState(false)
+  const [enabled] = useState(() => window.matchMedia('(hover: hover) and (pointer: fine)').matches)
 
   useEffect(() => {
-    const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
-    if (!mq.matches) return
-    setEnabled(true)
+    if (!enabled) return
     document.body.classList.add('has-cursor')
 
     const move = (e: PointerEvent) => {
@@ -29,7 +27,7 @@ export default function Cursor() {
       window.removeEventListener('pointermove', move)
       document.body.classList.remove('has-cursor')
     }
-  }, [x, y])
+  }, [enabled, x, y])
 
   if (!enabled) return null
 
