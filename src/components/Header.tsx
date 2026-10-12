@@ -34,7 +34,8 @@ export default function Header() {
             <i />
             <i />
           </span>
-          {profile.initials}·McCrossan
+          {profile.initials}
+          <span className="brand-rest">·McCrossan</span>
         </Link>
         <nav className="chrome-nav" aria-label="Primary">
           <div className="chrome-links label">
@@ -45,10 +46,23 @@ export default function Header() {
               </NavLink>
             ))}
           </div>
-          <Link to="/contact" className="hire-pill label" data-cursor="Hire">
-            <span className="dot dot--pulse" />
-            <Scramble text="Hire me" />
-          </Link>
+          <div className="chrome-actions">
+            <a href={profile.cv} download className="cv-btn label" aria-label="Download CV (PDF)">
+              <span className="cv-icon" aria-hidden>
+                <svg viewBox="0 0 16 16" width="14" height="14">
+                  <path d="M8 2v8M4.5 6.5 8 10l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+                  <path className="cv-tray" d="M2.5 13.5h11" fill="none" stroke="currentColor" strokeWidth="1.6" />
+                </svg>
+              </span>
+              <span>
+                <span className="cv-long">Download </span>CV
+              </span>
+            </a>
+            <Link to="/contact" className="hire-pill label" data-cursor="Hire">
+              <span className="dot dot--pulse" />
+              <Scramble text="Hire me" />
+            </Link>
+          </div>
           <button
             className={`burger${open ? ' open' : ''}`}
             onClick={() => setOpen((o) => !o)}
