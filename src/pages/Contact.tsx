@@ -34,7 +34,7 @@ export default function Contact() {
         num="05"
         kicker="Contact"
         aside="Open to roles in Copenhagen"
-        lines={["Let's", <span className="blue">talk</span>]}
+        lines={["Let's", <span key="k1" className="blue">talk</span>]}
       />
 
       <section className="wrap" style={{ paddingBottom: 'clamp(80px, 14vh, 180px)' }}>

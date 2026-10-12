@@ -12,7 +12,7 @@ export default function About() {
         num="01"
         kicker="About"
         aside={`${profile.location} → Copenhagen`}
-        lines={['The', <span className="blue">person</span>, <span className="outline-text">behind</span>]}
+        lines={['The', <span key="k1" className="blue">person</span>, <span key="k2" className="outline-text">behind</span>]}
       />
 
       <section className="wrap section" style={{ paddingTop: 0 }}>
@@ -66,7 +66,7 @@ export default function About() {
 
       <WhyHire
         reasons={aboutHireReasons}
-        lines={['AI that', <span className="outline-text">people</span>, <span className="blue">use</span>]}
+        lines={['AI that', <span key="k3" className="outline-text">people</span>, <span key="k4" className="blue">use</span>]}
       />
 
       <section className="section" style={{ paddingTop: 0 }}>
@@ -77,7 +77,7 @@ export default function About() {
           </div>
           <SplitLines
             className="h-xl"
-            lines={['Four', <span className="outline-text">chapters</span>]}
+            lines={['Four', <span key="k5" className="outline-text">chapters</span>]}
           />
         </div>
         <div className="chapters" style={{ marginTop: 'clamp(40px, 8vh, 80px)' }}>

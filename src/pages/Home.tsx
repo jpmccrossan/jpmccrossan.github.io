@@ -71,13 +71,13 @@ export default function Home({ ready }: { ready: boolean }) {
             delay={0.1}
             stagger={0.12}
             lines={[
-              <span className="row">
+              <span key="k1" className="row">
                 <span>James-</span>
               </span>,
-              <span className="row row--mid">
+              <span key="k2" className="row row--mid">
                 <span className="outline-text">Patrick</span>
               </span>,
-              <span className="row row--end">
+              <span key="k3" className="row row--end">
                 <span className="blue-text">McCrossan</span>
               </span>,
             ]}
@@ -176,7 +176,7 @@ export default function Home({ ready }: { ready: boolean }) {
         </div>
         <SplitLines
           className="h-xl"
-          lines={['A look', <span className="outline-text">around</span>]}
+          lines={['A look', <span key="k4" className="outline-text">around</span>]}
         />
         <ul
           className="index-list"

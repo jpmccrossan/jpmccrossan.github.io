@@ -17,7 +17,7 @@ type Props = {
 
 export default function WhyHire({
   reasons = hireReasons,
-  lines = ['Proof,', <span className="outline-text">not</span>, <span className="blue">promises</span>],
+  lines = ['Proof,', <span key="k1" className="outline-text">not</span>, <span key="k2" className="blue">promises</span>],
 }: Props) {
   return (
     <section className="wrap section" style={{ paddingTop: 0 }}>

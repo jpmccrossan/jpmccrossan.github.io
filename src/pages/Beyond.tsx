@@ -64,7 +64,7 @@ export default function Beyond() {
         num="04"
         kicker="Beyond work"
         aside="Drag to explore ↓"
-        lines={['Off', <span className="outline-text">the</span>, <span className="blue">clock</span>]}
+        lines={['Off', <span key="k1" className="outline-text">the</span>, <span key="k2" className="blue">clock</span>]}
       />
 
       <section style={{ paddingBottom: 'clamp(80px, 14vh, 180px)' }}>
@@ -80,7 +80,7 @@ export default function Beyond() {
       <section className="wrap section" style={{ paddingTop: 0 }}>
         <SplitLines
           className="h-xl"
-          lines={["Coffee's", <span className="outline-text">on me</span>]}
+          lines={["Coffee's", <span key="k3" className="outline-text">on me</span>]}
         />
         <div className="beyond-cols" style={{ marginTop: 'clamp(40px, 8vh, 80px)' }}>
           {beyond.map((b, i) => (

@@ -14,7 +14,7 @@ export default function Work() {
         num="02"
         kicker="Experience & education"
         aside="2018 → present"
-        lines={['Work', <span className="outline-text">so far</span>]}
+        lines={['Work', <span key="k1" className="outline-text">so far</span>]}
       />
 
       <section className="wrap section" style={{ paddingTop: 0 }}>

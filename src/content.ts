@@ -1,5 +1,6 @@
 // All site copy lives here so it can be edited without touching components.
-// Images: drop files into /public/images and set the `image` fields, e.g. image: '/images/bjj.jpg'.
+// Images: put web-ready files in /public/images and set the `image` fields, e.g. image: '/images/bjj-british-open.jpg'.
+// Unedited source photos live in /originals (not committed).
 
 export const profile = {
   firstName: 'James-Patrick',
@@ -142,7 +143,7 @@ export const skills: { group: string; primary?: boolean; items: string[] }[] = [
   {
     group: 'AI & Machine Learning',
     primary: true,
-    items: ['TensorFlow', 'NLP', 'LLMs', 'Reinforcement learning', 'Prompt engineering', 'RAG', 'Ollama', 'Azure AI Foundry'],
+    items: ['PyTorch', 'TensorFlow', 'NLP', 'LLMs', 'Reinforcement learning', 'Prompt engineering', 'RAG', 'Ollama', 'Azure AI Foundry'],
   },
   { group: 'Python & Backend', items: ['Python', 'REST APIs', 'FastAPI', 'Flask', 'Django', 'Nginx'] },
   {
@@ -156,6 +157,7 @@ export const skills: { group: string; primary?: boolean; items: string[] }[] = [
 export const marquee = [
   'Python',
   'SQL',
+  'PyTorch',
   'TensorFlow',
   'FastAPI',
   'PostgreSQL',

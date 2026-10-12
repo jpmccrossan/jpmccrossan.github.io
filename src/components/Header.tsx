@@ -15,7 +15,12 @@ export default function Header() {
   const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 40 })
   useMotionValueEvent(scrollY, 'change', (v) => setScrolled(v > 40))
 
-  useEffect(() => setOpen(false), [pathname])
+  // Close the menu whenever the route changes
+  const [prevPath, setPrevPath] = useState(pathname)
+  if (pathname !== prevPath) {
+    setPrevPath(pathname)
+    setOpen(false)
+  }
 
   useEffect(() => {
     setScrollLocked(open)
@@ -34,8 +39,10 @@ export default function Header() {
             <i />
             <i />
           </span>
-          {profile.initials}
-          <span className="brand-rest">·McCrossan</span>
+          <span>
+            {profile.initials}
+            <span className="brand-rest">·McCrossan</span>
+          </span>
         </Link>
         <nav className="chrome-nav" aria-label="Primary">
           <div className="chrome-links label">

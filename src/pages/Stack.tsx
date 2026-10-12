@@ -54,7 +54,7 @@ export default function Stack() {
         num="03"
         kicker="Skills & tools"
         aside={`${total} tools · 5 disciplines`}
-        lines={['The', <span className="blue">stack</span>]}
+        lines={['The', <span key="k1" className="blue">stack</span>]}
       />
 
       <section className="wrap" style={{ paddingBottom: 'clamp(80px, 14vh, 180px)' }}>
@@ -102,7 +102,7 @@ export default function Stack() {
       <section className="wrap section">
         <SplitLines
           className="h-xl"
-          lines={['Clean.', <span className="outline-text">Checked.</span>, <span className="blue">Trusted.</span>]}
+          lines={['Clean.', <span key="k2" className="outline-text">Checked.</span>, <span key="k3" className="blue">Trusted.</span>]}
         />
       </section>
     </Page>

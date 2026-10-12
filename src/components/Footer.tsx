@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { nav, profile } from '../content'
 import Marquee from './Marquee'
 
+const YEAR = new Date().getFullYear()
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -68,7 +70,7 @@ export default function Footer() {
 
       <div className="footer-base label">
         <span>
-          © {new Date().getFullYear()} {profile.firstName} {profile.lastName}
+          © {YEAR} {profile.firstName} {profile.lastName}
         </span>
         <span>Built with React + TypeScript</span>
       </div>
