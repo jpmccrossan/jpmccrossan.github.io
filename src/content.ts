@@ -37,7 +37,7 @@ export const stats = [
 export const about = {
   intro: [
     'At PKF Infuse I was the sole developer across systems, data and AI. I delivered an AI platform on Azure AI Foundry with prompt-chained, multi-step workflows, built an NLP pipeline on a locally hosted Ollama LLM with zero data leakage, and built an AI system with the M&A team that drafts information memoranda with a human in the loop.',
-    'Now at Assystem I work on-site in a highly regulated nuclear environment, where I built a reinforcement learning simulator in Python and TensorFlow. I use LangChain and LangGraph for orchestration, and Claude, Claude Code and Cursor every day.',
+    'Now at Assystem I work on-site in a highly regulated nuclear environment, where I built a reinforcement learning simulator in Python and TensorFlow. I use LangChain and LangGraph for orchestration. Outside work, in my own time, I build with Claude, Claude Code and Cursor every day.',
     'I also led firm-wide AI adoption: I trained colleagues on tooling and prompt engineering, ran a Copilot webinar and an AI Week, and sat with non-technical teams to decide which processes were worth rebuilding around AI.',
   ],
   highlight:
