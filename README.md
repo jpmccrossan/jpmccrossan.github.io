@@ -1,46 +1,28 @@
-# jp-mccrossan-site
+# jpmccrossan.github.io
 
-Personal "about me" site for James-Patrick McCrossan. React + TypeScript SPA built with Vite.
+Personal website of James-Patrick McCrossan, data scientist working on trustworthy AI and machine learning.
 
-Design: Bulkhead-style dark, massive uppercase type, grain and numbered index nav, recoloured in the
-CV's electric blue, with the CV's dot-grid motif as an interactive hero.
+Live at https://jpmccrossan.github.io
 
-## Develop
+Built with React, TypeScript and Vite.
+
+## Run locally
 
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # outputs static files to dist/
-npm run preview  # serve the production build locally
+npm run build    # production build in dist/
+npm run preview  # serve the production build
 ```
 
-## Editing content
+## Structure
 
-All copy lives in `src/content.ts`. To add images, put them in `public/images/` and set the
-matching `image` / `portrait` field, e.g. `portrait: '/images/portrait-shirt.jpg'`. Unedited source photos go in `originals/` (not committed). Empty fields render a
-styled placeholder.
+- `src/content.ts` holds all the text on the site.
+- `src/pages/` has one file per page: Home, About, Work, Stack, Beyond and Contact.
+- `src/components/` has the shared layout and animation components.
+- `public/images/` has the photos and `public/cv/` has the downloadable CV.
 
-| Route     | File                  |
-| --------- | --------------------- |
-| `/`       | `src/pages/Home.tsx`  |
-| `/about`  | `src/pages/About.tsx` |
-| `/work`   | `src/pages/Work.tsx`  |
-| `/stack`  | `src/pages/Stack.tsx` |
-| `/beyond` | `src/pages/Beyond.tsx`|
-| `/contact`| `src/pages/Contact.tsx`|
+## Deployment
 
-## Deploying
-
-Hosted on GitHub Pages. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the
-site and publishes `dist/`. It's live about 30 seconds later at https://jpmccrossan.github.io.
-
-The build copies `index.html` to `404.html` so deep links like `/about` load the app (GitHub Pages
-serves them with a 404 status, which browsers ignore).
-
-## Custom domain (moving off WordPress)
-
-1. `gh api -X PUT repos/jpmccrossan/jpmccrossan.github.io/pages -f cname=jpmccrossan.com`
-2. In WordPress.com DNS, keep any MX/email records, remove the `@` and `www` A/CNAME records, then add
-   A records on `@` for 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 and a
-   CNAME `www` → `jpmccrossan.github.io`.
-3. Verify the domain in GitHub (Settings → Pages), then enforce HTTPS once the certificate is issued.
+Every push to `main` builds the site and publishes it to GitHub Pages through
+`.github/workflows/deploy.yml`.
