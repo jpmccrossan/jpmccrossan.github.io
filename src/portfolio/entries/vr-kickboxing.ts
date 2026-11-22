@@ -22,7 +22,6 @@ export default {
   tags: ['Python', 'TensorFlow', 'Keras', 'MediaPipe', 'Unity', 'C#', 'Meta Quest 2', 'SportsHCI'],
   stats: [
     { value: '87.22%', label: 'Classifier test accuracy across 18 movement classes' },
-    { value: '18 → 3', label: 'Techniques trained vs. recognised reliably live' },
     { value: '~400ms', label: 'Response delay, right at the limit for real-time play' },
   ],
   links: [
