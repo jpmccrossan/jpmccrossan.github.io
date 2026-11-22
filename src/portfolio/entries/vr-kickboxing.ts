@@ -15,7 +15,7 @@ export default {
   ],
   cover: {
     src: '/images/vr-kickboxing/bcs-hci-2026-stage.jpg',
-    caption: 'On stage at BCS HCI 2026, giving the one-minute pitch',
+    caption: 'On stage at BCS HCI 2026, presenting the work',
     position: '50% 75%',
     portrait: true,
   },
@@ -27,7 +27,6 @@ export default {
   links: [
     { label: 'Download the paper', href: '/papers/training-alone-together-bcs-hci-2026.pdf', download: true },
     { label: 'Poster (PDF)', href: '/papers/training-alone-together-poster.pdf', download: true },
-    { label: 'One-minute pitch (PDF)', href: '/papers/training-alone-together-pitch.pdf', download: true },
   ],
   sections: [
     {

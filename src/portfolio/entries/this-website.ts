@@ -22,7 +22,7 @@ export default {
       heading: 'What is on it',
       points: [
         'A portfolio with a page for every role, project and piece of research.',
-        'A downloadable paper, poster and pitch for the VR kickboxing research.',
+        'A downloadable paper and poster for the VR kickboxing research.',
         'An About page covering the person as well as the CV.',
         'Tailored pages for job applications, shared directly with each company.',
       ],
