@@ -2,15 +2,22 @@
 node_modules
 dist
 *.log
+*.tsbuildinfo
+
+# Python virtual environments
+.venv/
+venv/
 
 # Editor and OS files
 .vscode
 .idea
 .DS_Store
+Thumbs.db
 
-# Environment files
+# Environment files and local overrides
 .env
 .env.*
+*.local
 
 # Personal documents; only the published CV is committed
 *.pdf
