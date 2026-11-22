@@ -12,7 +12,6 @@ export default {
   intro: [
     'Solo training leaves martial artists without one thing it cannot replace: a responsive sparring partner. Bag work and shadowboxing build closed skills like technique, power and combinations. Sparring builds the open skill of reading an opponent who reads you back.',
     'Drawing on my own experience as a martial artist, I built a proof-of-concept VR sparring system for kickboxing that closes a loop of recognition, prediction and response for a solo practitioner. It started as my MSc dissertation and became a short paper at BCS HCI 2026: "Training Alone, Together: Developing a Virtual Opponent for Home-Based Kickboxing Training".',
-    'The work is mine from start to finish: I did the research, built the whole system, ran the evaluation and wrote the paper. Katarzyna Stawarz (Cardiff University), the second author, reviewed it and helped me refine it.',
   ],
   cover: {
     src: '/images/vr-kickboxing/bcs-hci-2026-stage.jpg',
