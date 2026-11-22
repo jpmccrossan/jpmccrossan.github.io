@@ -3,6 +3,7 @@ import Page from '../components/Page'
 import PageHero from '../components/PageHero'
 import { FadeUp } from '../components/Reveal'
 import { profile } from '../content'
+import { navNum } from '../navNum'
 
 function Clock({ zone, label }: { zone: string; label: string }) {
   const [now, setNow] = useState(() => new Date())
@@ -31,7 +32,7 @@ export default function Contact() {
   return (
     <Page title={`Contact · ${profile.firstName} ${profile.lastName}`}>
       <PageHero
-        num="05"
+        num={navNum('/contact')}
         kicker="Contact"
         aside="Open to roles in Copenhagen"
         lines={["Let's", <span key="k1" className="blue">talk</span>]}
@@ -46,6 +47,13 @@ export default function Contact() {
             {profile.email.split('@')[0]}
             <wbr />@{profile.email.split('@')[1]}
           </a>
+        </FadeUp>
+
+        <FadeUp delay={0.08}>
+          <div className="callout contact-note">
+            I work 8:00–16:00 (UK time) and cannot use my phone at work, so email is the best way to reach me. I
+            am happy to arrange a call if we plan it in advance.
+          </div>
         </FadeUp>
 
         <ul className="contact-links" style={{ marginTop: 'clamp(56px, 10vh, 120px)' }}>

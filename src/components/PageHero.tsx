@@ -28,7 +28,7 @@ export default function PageHero({
         </span>
         {aside && <span className="dim">{aside}</span>}
       </motion.div>
-      <SplitLines as="h1" className="h-mega" lines={lines} immediate delay={0.55} stagger={0.1} />
+      <SplitLines as="h1" className="h-page" lines={lines} immediate delay={0.55} stagger={0.1} />
     </section>
   )
 }

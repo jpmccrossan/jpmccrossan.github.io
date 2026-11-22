@@ -61,12 +61,12 @@ export default function Footer() {
           <span className="label">Location</span>
           <ul>
             <li>{profile.location}</li>
-            <li>→ Copenhagen, 2026</li>
+            <li>→ Copenhagen</li>
           </ul>
         </div>
       </div>
 
-      <Marquee items={['Trustworthy AI & ML', 'Python & SQL', 'Copenhagen 2026']} speed={40} />
+      <Marquee items={['AI you can trust', 'Python and SQL', 'Relocating to Copenhagen']} speed={40} />
 
       <div className="footer-base label">
         <span>

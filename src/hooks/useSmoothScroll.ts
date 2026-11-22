@@ -31,3 +31,11 @@ export function setScrollLocked(locked: boolean) {
   else lenis?.start()
   document.documentElement.style.overflow = locked ? 'hidden' : ''
 }
+
+/** Smooth-scroll to an element by id, leaving room for the fixed header. */
+export function scrollToId(id: string) {
+  const el = document.getElementById(id)
+  if (!el) return
+  if (lenis) lenis.scrollTo(el, { offset: -90 })
+  else el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}

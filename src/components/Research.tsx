@@ -1,4 +1,5 @@
 import { useRef, useState, useLayoutEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import { research } from '../content'
 
@@ -53,6 +54,14 @@ export default function Research() {
                   {v}
                 </span>
               ))}
+            </div>
+            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 32 }}>
+              <Link to="/portfolio/vr-kickboxing" className="btn">
+                The full story <span className="arrow">→</span>
+              </Link>
+              <a href="/papers/training-alone-together-bcs-hci-2026.pdf" download className="btn btn--ghost">
+                Paper <span className="arrow">↓</span>
+              </a>
             </div>
           </div>
           {research.slides.map((s, i) => (

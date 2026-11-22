@@ -19,9 +19,10 @@ Thumbs.db
 .env.*
 *.local
 
-# Personal documents; only the published CV is committed
+# Personal documents; only the published CV and papers are committed
 *.pdf
 !public/cv/*.pdf
+!public/papers/*.pdf
 
 # Unedited source photos (web versions live in public/images)
 originals/

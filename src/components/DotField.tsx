@@ -104,9 +104,9 @@ export default function DotField({ className }: { className?: string }) {
         const size = 1.1 + heat * 2.4
 
         if (heat > 0.05) {
-          ctx.fillStyle = `rgba(77, 99, 255, ${Math.min(1, alpha)})`
+          ctx.fillStyle = `rgba(41, 151, 255, ${Math.min(1, alpha)})`
         } else {
-          ctx.fillStyle = `rgba(244, 241, 234, ${alpha})`
+          ctx.fillStyle = `rgba(245, 245, 247, ${alpha})`
         }
         ctx.fillRect(px[i] - size / 2, py[i] - size / 2, size, size)
       }

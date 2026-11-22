@@ -1,4 +1,4 @@
-import type { ElementType, PointerEventHandler, ReactNode } from 'react'
+import { Fragment, type ElementType, type PointerEventHandler, type ReactNode } from 'react'
 import { motion } from 'motion/react'
 
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -12,6 +12,8 @@ type SplitProps = {
   /** animate on mount instead of when scrolled into view */
   immediate?: boolean
   play?: boolean
+  /** keep each item on its own line (by default, items are joined into one line that wraps naturally) */
+  stack?: boolean
 }
 
 // Masked line-by-line reveal: each line slides up from behind its own clip.
@@ -23,7 +25,20 @@ export function SplitLines({
   stagger = 0.08,
   immediate,
   play = true,
+  stack = false,
 }: SplitProps) {
+  if (!stack && lines.length > 1) {
+    lines = [
+      <span key="joined">
+        {lines.map((l, i) => (
+          <Fragment key={i}>
+            {i > 0 && ' '}
+            {l}
+          </Fragment>
+        ))}
+      </span>,
+    ]
+  }
   const trigger = immediate
     ? { animate: play ? 'shown' : 'hidden' }
     : { whileInView: 'shown', viewport: { once: true, margin: '-10% 0px' } }
