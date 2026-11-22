@@ -6,7 +6,7 @@ import PageHero from '../components/PageHero'
 import Media from '../components/Media'
 import Gallery from '../components/Gallery'
 import { FadeUp, SplitLines, WordReveal } from '../components/Reveal'
-import { about, adventures, beyond, personal, profile } from '../content'
+import { adventures, beyond, personal, profile } from '../content'
 import { navNum } from '../navNum'
 
 // Draggable rail of adventures (from the old Beyond page). Cards with `to` link through.
@@ -106,47 +106,6 @@ export default function About() {
               </span>
               <h3>{v.title}</h3>
               <p className="dim">{v.text}</p>
-            </FadeUp>
-          ))}
-        </div>
-      </section>
-
-      {/* Chapters */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="section-head">
-            <span className="label">The route here</span>
-            <span className="label dim">0{about.chapters.length} chapters</span>
-          </div>
-          <SplitLines className="h-xl" lines={[`${['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven'][about.chapters.length - 1] ?? about.chapters.length} chapters`]} />
-        </div>
-        <div className="chapters" style={{ marginTop: 'clamp(40px, 8vh, 80px)' }}>
-          {about.chapters.map((c, i) => (
-            <FadeUp key={c.num} delay={i * 0.08} className="chapter">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <span className="num">{c.num}</span>
-                <span className="label dim">{c.years}</span>
-              </div>
-              {c.image && <Media src={c.image} alt={c.title} label={c.title} className="media--contain" />}
-              <h3>
-                {c.to ? (
-                  <Link to={c.to} className="chapter-link">
-                    {c.title} <span className="blue">→</span>
-                  </Link>
-                ) : (
-                  c.title
-                )}
-              </h3>
-              <p className="dim">{c.text}</p>
-              {c.links && (
-                <div className="chapter-links">
-                  {c.links.map((l) => (
-                    <Link key={l.to} to={l.to} className="label chapter-link">
-                      {l.label} <span className="blue">→</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
             </FadeUp>
           ))}
         </div>

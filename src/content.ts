@@ -123,8 +123,8 @@ export const home = {
       kicker: 'Every day',
       title: 'Learning Danish',
       text: 'I read Erik Menneskesøn with my Danish fiancée every day, and I am at level 25 on Duolingo.',
-      image: '',
-      position: '50% 50%',
+      image: '/images/copenhagen/little-mermaid.jpg',
+      position: '50% 45%',
     },
   ],
 }
